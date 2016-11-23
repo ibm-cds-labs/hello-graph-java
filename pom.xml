@@ -115,9 +115,9 @@
     </dependency>    
     <!-- temp only: end dependencies from graph -->
     <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-log4j12</artifactId>
-       <version>1.7.5</version>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-slf4j-impl</artifactId>
+       <version>2.7</version>
    </dependency>
   </dependencies>
 </project>
