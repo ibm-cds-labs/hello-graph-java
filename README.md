@@ -36,10 +36,10 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 
 > Take note of these credentials
 
-* Compile the sample application
+* Compile and install the sample application
 
 ```
- $ mvn compile
+ $ mvn install
 ```
 
 * Review the sample application `com.ibm.cdslabs.sample.HelloGraph.java`
@@ -49,5 +49,5 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 Specify the service credentials values for `apiURL` `username` and `password` as command line parameter to the sample application:
 
 ```
-$ mvn exec:java -Dexec.args="https://ibmgraph-alpha.ng.bluemix.net/f...6/g e...7 d...4"
+$ java -cp classes;lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph-alpha.ng.bluemix.net/f...6/g e...7 d...4
 ```
