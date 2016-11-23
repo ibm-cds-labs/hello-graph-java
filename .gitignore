@@ -1,3 +1,5 @@
+target/
+src/main/java/com/ibm/graph/
 *.class
 
 # Mobile Tools for Java (J2ME)
