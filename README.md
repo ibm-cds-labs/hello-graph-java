@@ -1,5 +1,5 @@
 # hello-graph-java
-Sample Java application for the IBM Graph library
+Sample Java application for the [experimental IBM Graph library](https://github.com/ibm-cds-labs/java-graph)
 
 
 ### Create an IBM Graph service instance in Bluemix
