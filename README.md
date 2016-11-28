@@ -42,6 +42,8 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
  $ mvn install
 ```
 
+> The ready-to-run application artifacts are located in the `target` directory
+
 * Review the sample application `com.ibm.cdslabs.sample.HelloGraph.java`
 
 * Run the sample application
@@ -49,5 +51,5 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 Specify the service credentials values for `apiURL` `username` and `password` as command line parameter to the sample application:
 
 ```
-$ java -cp classes;lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph-alpha.ng.bluemix.net/f...6/g e...7 d...4
+$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph-alpha.ng.bluemix.net/f...6/g e...7 d...4
 ```
