@@ -39,7 +39,7 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 * Compile and install the sample application
 
 ```
- $ mvn install
+ $ mvn clean install -Dmaven.test.skip=true
 ```
 
 > The ready-to-run application artifacts are located in the `target` directory
