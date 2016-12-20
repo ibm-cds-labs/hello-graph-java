@@ -36,10 +36,10 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 
 > Take note of these credentials
 
-* Compile and install the sample application
+* Compile and package the the sample application
 
 ```
- $ mvn clean install -Dmaven.test.skip=true
+ $ mvn clean package 
 ```
 
 > The ready-to-run application artifacts are located in the `target` directory
@@ -51,5 +51,11 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 Specify the service credentials values for `apiURL` `username` and `password` as command line parameter to the sample application:
 
 ```
-$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph-alpha.ng.bluemix.net/f...6/g e...7 d...4
+$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 
+```
+
+The sample application operates on a temporary graph. To retain the graph when the application terminates add the `keep` parameter:
+
+```
+$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 keep
 ```

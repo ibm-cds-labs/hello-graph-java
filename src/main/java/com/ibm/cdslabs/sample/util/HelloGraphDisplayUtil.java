@@ -1,7 +1,7 @@
 package com.ibm.cdslabs.sample.util;
 
-import com.ibm.graph.client.Element;
 import com.ibm.graph.client.Vertex;
+import com.ibm.graph.client.Edge;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -20,21 +20,6 @@ public class HelloGraphDisplayUtil {
 		return;
 	}
 
-	public static void displayResults(String message,
-									  Element[] elements) {
-		
-		logger.info(message);
-
-		// iterate through array
-		if(elements != null) {
-			for(Element element: elements) {
-				logger.info(" Result: " + element.toString());
-			}	
-		}
-		
-		return;
-	}
-
 	public static void displayVertex(String message,
 									 Vertex vertex) {
 		
@@ -48,5 +33,17 @@ public class HelloGraphDisplayUtil {
 		return;
 	}
 
+	public static void displayEdge(String message,
+								   Edge edge) {
+		
+		if(edge != null) {
+			logger.info("Edge properties:");
+			logger.info(edge.toString());
+		}
+		else {
+			logger.error("The edge is undefined.");	
+		}		
+		return;
+	}
 
 }
