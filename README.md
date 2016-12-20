@@ -1,5 +1,4 @@
 # hello-graph-java
-[![Build Status](https://travis-ci.org/ibm-cds-labs/hello-graph-java.svg?branch=master)](https://travis-ci.org/ibm-cds-labs/hello-graph-java)
 
 Sample Java application for the [experimental IBM Graph library](https://github.com/ibm-cds-labs/java-graph)
 
