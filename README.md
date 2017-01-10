@@ -1,35 +1,33 @@
 # hello-graph-java
 
-Sample Java application for the [experimental IBM Graph library](https://github.com/ibm-cds-labs/java-graph)
+This sample application illustrates how to use the [experimental Java library for IBM Graph](https://github.com/ibm-cds-labs/java-graph) to create a graph, add vertices and edges (ad-hoc and in bulk) and traverse the graph using Gremlin.
+
+If you are not familiar with IBM Graph concepts take a look at the [Getting started guide](https://ibm-graph-docs.ng.bluemix.net/gettingstarted.html).
 
 #### Create an IBM Graph service instance in Bluemix
+
+Before you can run this sample application you have to create an instance of the [IBM Graph service in Bluemix](https://console.ng.bluemix.net/catalog/services/ibm-graph/). 
+
+> Note: The IBM Graph service comes with up to 500 MB of free data storage and 25,000 API calls per month. See [pricing plans](https://console.ng.bluemix.net/catalog/services/ibm-graph/) for use beyond that.
+
+The instructions below assume that you have the [Cloud Foundry CLI](https://console.ng.bluemix.net/docs/cli/index.html#cli) installed on your machine. 
 
 * Identify the current Bluemix organization and space
 ```
 $ cf t
- API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+ API endpoint:   https://api.ng.bluemix.net (API version: 2.x.y)
  User:           someuser@somedomain
  Org:            someuser_org
  Space:          space_name
 ```
 
-* Create a service instance
+* Create an IBM Graph service instance and credentials
 ```
 $ cf create-service "IBM Graph" Standard ibm-graph-sample
-```
-
-* Retrieve service credentials
-```
- $ cf service-keys ibm-graph-sample
- ...
- name
- Credentials-1
-```
-
- > If no service key (default name is `Credentials-1`) is displayed, run the following command. 
-```
 $ cf create-service-key ibm-graph-sample Credentials-1
 ```
+
+> These credentials provide you with connectity information for your IBM Graph service instance in Bluemix.
 
 * Display service credentials
 ```
@@ -43,22 +41,13 @@ Getting key Credentials-1 for service instance ibm-graph-sample as ...
 }
 ```
 
-> Take note of these credentials
-
-#### Install the the Java graph library in your local Maven repository
-
-The experimental library `graphclient-x.y.z.jar` has not been published yet. To use it download the source code and install it in your local Maven repository:
-
-```
-$ git clone https://github.com/ibm-cds-labs/java-graph.git
-$ cd java-graph
-$ mvn clean install -Dmaven.test.skip=true -Dgpg.skip=true
-```
+> Take note of these credentials. You will need them to configure the sample application.
 
 ####  Download and package the the sample application
 
+In order to build the sample application, [Apache Maven](http://maven.apache.org/download.cgi) is required.
+
 ```
- $ cd ..
  $ git clone https://github.com/ibm-cds-labs/hello-graph-java.git
  $ cd hello-graph-java
  $ mvn clean package 
