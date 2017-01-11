@@ -8,7 +8,7 @@ If you are not familiar with IBM Graph concepts take a look at the [Getting star
 
 Before you can run this sample application you have to create an instance of the [IBM Graph service in Bluemix](https://console.ng.bluemix.net/catalog/services/ibm-graph/). 
 
-> Note: The IBM Graph service comes with up to 500 MB of free data storage and 25,000 API calls per month. See [pricing plans](https://console.ng.bluemix.net/catalog/services/ibm-graph/) for use beyond that.
+> Note: You can try IBM Graph for free with limited storage and API calls. See [pricing plans](https://console.ng.bluemix.net/catalog/services/ibm-graph/) for more details.
 
 The instructions below assume that you have the [Cloud Foundry CLI](https://console.ng.bluemix.net/docs/cli/index.html#cli) installed on your machine. 
 
