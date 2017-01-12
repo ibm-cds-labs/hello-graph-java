@@ -1,6 +1,6 @@
 # hello-graph-java
 
-This sample application illustrates how to use the [experimental Java library for IBM Graph](https://github.com/ibm-cds-labs/java-graph) to create a graph, add vertices and edges (ad-hoc and in bulk) and traverse the graph using Gremlin.
+This sample application illustrates how to use the [experimental Java library for IBM Graph](https://github.com/ibm-cds-labs/java-graph) to create a graph, add vertices and edges (ad-hoc and in bulk) and traverse the graph using Gremlin. If you prefer to code in Javascript, check out the companion repository [hello-graph-node](https://github.com/ibm-cds-labs/hello-graph-node).
 
 If you are not familiar with IBM Graph concepts take a look at the [Getting started guide](https://ibm-graph-docs.ng.bluemix.net/gettingstarted.html).
 
