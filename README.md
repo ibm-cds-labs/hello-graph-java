@@ -57,19 +57,27 @@ In order to build the sample application, [Apache Maven](http://maven.apache.org
 
 #### Review and run the sample application
 
-The sample application `com.ibm.cdslabs.sample.HelloGraph.java` illustrates how to use the Graph library. To run it specify the service credentials values for `apiURL`, `username` and `password` as command line parameters:
+The sample application `com.ibm.cdslabs.sample.HelloGraph.java` illustrates how to use the Graph library. To run it specify the service credentials values for `apiURL`, `username` and `password` as command line parameters as shown in the example for Unix below:
 
 ```
-$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 
+$ java -cp "target/classes:target/lib/*" com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 
 ```
+
+> Invocation on Microsoft Windows: 
+
+>```java -cp "target/classes;target/lib/*" com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4``` 
 
 The sample application operates on a temporary graph. To retain the graph when the application terminates add the `keep` parameter:
 
 ```
-$ java -cp target/classes;target/lib/* com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 keep
+$ java -cp "target/classes:target/lib/*" com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 keep
  ...
  INFO  To continue your exploration connect to Graph 3...3
 ```
+
+> Invocation on Microsoft Windows: 
+
+>```java -cp "target/classes;target/lib/*" com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 keep```
 
 #### Explore the graph interactively in the web console
 
