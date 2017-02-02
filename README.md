@@ -72,7 +72,7 @@ The sample application operates on a temporary graph. To retain the graph when t
 ```
 $ java -cp "target/classes:target/lib/*" com.ibm.cdslabs.sample.HelloGraph https://ibmgraph...net/f...6/g e...7 d...4 keep
  ...
- INFO  To continue your exploration connect to Graph 3...3
+ INFO  Open https://console.ng.bluemix.net/data/graphdb/f...6/query?graph=8...a to explore the graph in the IBM Graph web console. If prompted enter your IBM Bluemix credentials.
 ```
 
 > Invocation on Microsoft Windows: 
@@ -81,11 +81,6 @@ $ java -cp "target/classes:target/lib/*" com.ibm.cdslabs.sample.HelloGraph https
 
 #### Explore the graph interactively in the web console
 
-If you've retained the sample graph after the sample application terminated, you can explore it in the IBM Graph web console.
+If you've retained the sample graph after the sample application terminated, you can explore it in the IBM Graph web console by opening the displayed link. If prompted enter your IBM Bluemix credentials.
 
-* Open the Bluemix web console https://console.ng.bluemix.net
-* Navigate to the space that you've identified in step 1
-* Click on the Graph service instance tile
-* Select **Manage** > **Open** to open the Graph web console
-* Select the graph that was created by the sample application 
-* Traverse the graph 
+

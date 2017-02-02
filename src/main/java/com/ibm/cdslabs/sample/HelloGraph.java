@@ -17,6 +17,8 @@ import com.ibm.graph.client.Vertex;
 import com.ibm.graph.client.response.ResultSet;
 
 import java.io.FileInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 
 import org.apache.logging.log4j.Logger;
@@ -35,10 +37,29 @@ public class HelloGraph {
     		logger.error(" <apiURL>  : required; apiURL value from IBM-Graph service credentials");
     		logger.error(" <username>: required; username value from IBM-Graph service credentials");
     		logger.error(" <password>: required; password value from IBM-Graph service credentials");
-    		logger.error(" keep: optional; if specified the sample graph will not be deleted when this sample applicatoin terminates");
+    		logger.error(" keep: optional; if specified the sample graph will not be deleted when this sample application terminates");
     		System.exit(1);	
     	}
     	
+    	String graphServiceInstanceId = null;
+
+    	try {
+    		// Accepted formats: 
+    		// 	https://ibmgraph-alpha.ng.bluemix.net/<instance_id>
+    		// 	https://ibmgraph-alpha.ng.bluemix.net/<instance_id>/<graph_id>
+			String[] pathElements = new URL(args[0]).getPath().split("/");
+			if(pathElements.length > 1)
+				graphServiceInstanceId = pathElements[1];
+			else {
+				logger.error("Parameter " + args[0] + " is not a valid IBM Graph URL.");	
+				System.exit(1);
+			}
+    	}
+    	catch(MalformedURLException muex) {
+    		logger.error("Parameter " + args[0] + " is not a valid URL.");
+    		System.exit(1);	
+    	}
+
     	// IBM Graph wrapper class for easy access to common operations.
     	IBMGraphClient graphClient = new IBMGraphClient(args[0], args[1], args[2]);
     	boolean keep = ((args.length > 3) && ("keep".equalsIgnoreCase(args[3]))) ? true : false;
@@ -286,29 +307,29 @@ public class HelloGraph {
     		logger.error("A general error occurred: ", ex);
     	}
     	finally {
-    		// cleanup
-    		HelloGraphDisplayUtil.displayHeading("Cleanup");
-    		if(defaultGraphId != null) {
+    		if(keep) {
+				String gwc_url = "https://console.ng.bluemix.net/data/graphdb/" + graphServiceInstanceId + "/query?graph=" + graphId;
+				logger.info("Open " + gwc_url + " to explore the graph in the IBM Graph web console. If prompted enter your IBM Bluemix credentials.");
+    		}
+    		else {
     			try {
-    				// switch to default graph
-    				graphClient.setGraph(defaultGraphId);
-    				if(! keep) {
-    					// delete sample graph
-    					logger.debug("Deleting graph.");
-	    				graphClient.deleteGraph(graphId);
-    					logger.info("Graph " + graphId + " was deleted.");
-    					logger.info("");
-    					logger.info("To retain the graph re-run this application and add the keep parameter:");
-    					logger.info("HelloGraph <apiURL> <username> <password> keep");
+    				if((defaultGraphId != null) && (defaultGraphId.trim().length() > 0)) {
+    					// switch to default graph
+    					graphClient.setGraph(defaultGraphId);
     				}
-    				else {
-    					logger.info("To continue your exploration connect to Graph " + graphId);
-    				}
+    				// delete sample graph
+    				logger.debug("Deleting sample graph.");
+	    			graphClient.deleteGraph(graphId);
+    				logger.info("Graph " + graphId + " was deleted.");
     			}
     			catch(Exception ex) {
     				logger.error("Fatal error during cleanup: ", ex);			
     			}
-    		}
+    			finally {
+					logger.info("To retain the graph re-run this application and add the keep parameter:");
+					logger.info("HelloGraph <apiURL> <username> <password> keep");
+				}
+			}
     	}
 	}
 }
